@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Noir — Dark luxury HTML template for premium brands." />
+  <title>Noir — Dark Luxury Template</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg:#0A0A0A;--bg-alt:#111111;--text:#F0EDE8;--text-light:#8A8578;--text-muted:#5A5548;--accent:#C9A94E;--accent-light:#E8D5A8;--accent-dark:#A8882D;--border:rgba(240,237,232,0.06);--font:'Inter',sans-serif;--font-display:'DM Serif Display',Georgia,serif;--ease:cubic-bezier(0.22,1,0.36,1)}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;background:var(--bg)}
+    body{font-family:var(--font);font-weight:300;font-size:1rem;line-height:1.7;color:var(--text);background:var(--bg);overflow-x:hidden}
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(1.5rem,4vw,2.5rem)}
+    a{color:inherit;text-decoration:none}
+    ul{list-style:none}
+
+    .nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:1.2rem 0;mix-blend-mode:difference}
+    .nav__inner{display:flex;align-items:center;justify-content:space-between}
+    .nav__logo{font-family:var(--font-display);font-size:1.5rem;font-style:italic;color:#fff}
+    .nav__links{display:flex;gap:2.5rem}
+    .nav__links a{font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);transition:color 0.3s}
+    .nav__links a:hover{color:#fff}
+
+    /* Grid pattern background */
+    .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(201,169,78,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,169,78,0.03) 1px,transparent 1px);background-size:60px 60px}
+
+    .hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;padding:8rem 0 4rem}
+    .hero__content{max-width:800px}
+    .hero__label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
+    .hero h1{font-family:var(--font-display);font-size:clamp(3rem,7vw,5.5rem);font-weight:400;line-height:1.05;margin-bottom:1.5rem}
+    .hero h1 em{font-style:italic;color:var(--accent)}
+    .hero p{font-size:clamp(1rem,1.3vw,1.2rem);color:var(--text-light);max-width:480px;margin-bottom:2.5rem}
+    .btn{display:inline-block;padding:0.9rem 2.5rem;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.4s var(--ease);border:none;cursor:pointer;text-decoration:none}
+    .btn--primary{background:var(--accent);color:var(--bg)}
+    .btn--primary:hover{background:var(--accent-light)}
+    .btn--outline{border:1px solid var(--accent);color:var(--accent);background:transparent}
+    .btn--outline:hover{background:var(--accent);color:var(--bg)}
+
+    .hero__divider{width:80px;height:1px;background:var(--accent);margin-top:3rem}
+
+    section{position:relative;z-index:1;padding:clamp(4rem,8vw,7rem) 0}
+    .section-tag{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+    .section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:400;line-height:1.15;margin-bottom:1rem}
+    .section-sub{color:var(--text-light);max-width:480px}
+
+    .showcase__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+    .noir-card{background:var(--bg-alt);padding:3rem 2.5rem;transition:all 0.4s var(--ease)}
+    .noir-card:hover{background:#161616}
+    .noir-card__num{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
+    .noir-card__title{font-family:var(--font-display);font-size:1.3rem;margin-bottom:0.8rem}
+    .noir-card__text{font-size:0.85rem;color:var(--text-light);line-height:1.7}
+
+    .features{background:var(--bg-alt)}
+    .features__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .feat__num{font-family:var(--font-display);font-size:2.5rem;font-weight:400;color:var(--accent);line-height:1;margin-bottom:0.8rem}
+    .feat__title{font-family:var(--font-display);font-size:1.2rem;margin-bottom:0.4rem}
+    .feat__text{font-size:0.85rem;color:var(--text-light)}
+
+    .pricing__card{max-width:420px;margin:0 auto;border:1px solid var(--border);padding:3rem;text-align:center}
+    .pricing__amount{font-family:var(--font-display);font-size:3.5rem;color:var(--accent);margin:1.5rem 0}
+    .pricing__amount small{font-size:1rem;color:var(--text-muted);font-family:var(--font)}
+    .pricing__features{list-style:none;margin-bottom:2rem}
+    .pricing__features li{padding:0.5rem 0;color:var(--text-light);border-bottom:1px solid var(--border)}
+    .pricing__features li:last-child{border:none}
+    .pricing__btn{width:100%}
+
+    .contact__card{max-width:520px;margin:0 auto;border:1px solid var(--border);padding:3rem}
+    .contact__form{display:flex;gap:0.75rem}
+    .contact__input{flex:1;padding:0.8rem 1.2rem;border:1px solid var(--border);background:transparent;color:var(--text);font-size:0.9rem;outline:none}
+    .contact__input:focus{border-color:var(--accent)}
+
+    .footer{padding:3rem 0;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.85rem;text-align:center}
+
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s var(--ease),transform 0.7s var(--ease)}
+    .reveal--visible{opacity:1;transform:translateY(0)}
+
+    @media(max-width:768px){.showcase__grid,.features__grid{grid-template-columns:1fr}.contact__form{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="#" class="nav__logo">Noir</a>
+      <ul class="nav__links">
+        <li><a href="#showcase">Work</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero__content">
+        <p class="hero__label">Premium design</p>
+        <h1>Luxury lives<br/>in the <em>dark.</em></h1>
+        <p>Bold, minimal, refined. A black-and-gold canvas for brands that command attention.</p>
+        <a href="#showcase" class="btn btn--primary">Explore</a>
+        <div class="hero__divider"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase" id="showcase">
+    <div class="container">
+      <p class="section-tag">The Collection</p>
+      <h2 class="section-title">Crafted in black & gold.</h2>
+      <p class="section-sub" style="margin-bottom:3rem">Every detail is intentional. Nothing is extra.</p>
+    </div>
+    <div class="showcase__grid">
+      <div class="noir-card"><p class="noir-card__num">01</p><h3 class="noir-card__title">Dark Typography</h3><p class="noir-card__text">Serif headlines on dark backgrounds — the highest-contrast, most luxurious reading experience.</p></div>
+      <div class="noir-card"><p class="noir-card__num">02</p><h3 class="noir-card__title">Gold Accents</h3><p class="noir-card__text">Warm gold isn't just a color — it's a material language. Used sparingly for maximum impact.</p></div>
+      <div class="noir-card"><p class="noir-card__num">03</p><h3 class="noir-card__title">Grid Pattern</h3><p class="noir-card__text">Subtle architectural grid gives structure without distracting. The foundation beneath the content.</p></div>
+      <div class="noir-card"><p class="noir-card__num">04</p><h3 class="noir-card__title">Split Nav</h3><p class="noir-card__text">Navigation uses mix-blend-mode to adapt to any background. Always visible, never intrusive.</p></div>
+      <div class="noir-card"><p class="noir-card__num">05</p><h3 class="noir-card__title">Line Divider</h3><p class="noir-card__text">A single gold line marks transitions. Minimalist punctuation for each section.</p></div>
+      <div class="noir-card"><p class="noir-card__num">06</p><h3 class="noir-card__title">Zero Deps</h3><p class="noir-card__text">Pure HTML + CSS + a touch of JS. No frameworks. No bloat.</p></div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <p class="section-tag">Features</p>
+      <h2 class="section-title">Minimal by design.</h2>
+      <div class="features__grid" style="margin-top:3rem">
+        <div class="feat"><div class="feat__num">01</div><h3 class="feat__title">Luxury Typography</h3><p class="feat__text">DM Serif Display + Inter — a refined, editorial pairing.</p></div>
+        <div class="feat"><div class="feat__num">02</div><h3 class="feat__title">Gold Palette</h3><p class="feat__text">Three gold tones (light, base, dark) for depth and hierarchy.</p></div>
+        <div class="feat"><div class="feat__num">03</div><h3 class="feat__title">Responsive</h3><p class="feat__text">Flawless on every screen. Luxury doesn't compromise.</p></div>
+        <div class="feat"><div class="feat__num">04</div><h3 class="feat__title">Documentation</h3><p class="feat__text">Full guide included. Customize colors and content in minutes.</p></div>
+        <div class="feat"><div class="feat__num">05</div><h3 class="feat__title">Grid System</h3><p class="feat__text">Architectural grid background adds structure without clutter.</p></div>
+        <div class="feat"><div class="feat__num">06</div><h3 class="feat__title">GitHub Ready</h3><p class="feat__text">Deploy with one push. GitHub Pages, Netlify, or any static host.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <p class="section-tag" style="text-align:center">Pricing</p>
+      <h2 class="section-title" style="text-align:center">Own Noir.</h2>
+      <div class="pricing__card" style="margin-top:2rem">
+        <div style="font-family:var(--font-display);font-size:1.3rem;font-style:italic;color:var(--accent)">Noir</div>
+        <div class="pricing__amount">¥199 <small>$29</small></div>
+        <ul class="pricing__features">
+          <li>✓ Complete HTML + CSS source</li>
+          <li>✓ Gold accent system</li>
+          <li>✓ Responsive + dark-first</li>
+          <li>✓ Customization guide</li>
+          <li>✓ Lifetime updates</li>
+        </ul>
+        <a href="https://github.com/dylanshi-cloud/noir-template#-pricing" class="btn btn--primary pricing__btn">Buy Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact__card">
+        <h2 class="section-title" style="font-size:1.8rem">Inquire</h2>
+        <p style="color:var(--text-light);margin-bottom:2rem">Questions about Noir?</p>
+        <form class="contact__form"><input type="email" class="contact__input" placeholder="Your email" required /><button type="submit" class="btn btn--primary">Send</button></form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer"><div class="container"><p style="font-family:var(--font-display);font-size:1.3rem;font-style:italic;margin-bottom:0.3rem">Noir</p><p>Dark luxury template. Made with intention.</p><p style="margin-top:1rem;font-size:0.75rem">&copy; 2026 Noir Template</p></div></footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
